@@ -19,6 +19,9 @@ class PageLogin(BaseAction):
     def page_click_login_button(self):
         self.base_click(self.login_button)
 
+    # def page_toast_if_exist(self,toast):
+    #     self.base_is_toast_exist(toast)
+
 
     #组合业务方法
     def page_login(self,username,password):
