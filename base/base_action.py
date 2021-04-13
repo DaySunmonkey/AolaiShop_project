@@ -1,6 +1,8 @@
+import time
+
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
 
 class BaseAction:
 
@@ -8,13 +10,13 @@ class BaseAction:
         self.driver = driver
 
     #查找元素
-    def base_find_element(self, feature, timeout=120, poll=1):
+    def base_find_element(self, feature, timeout=30, poll=0.1):
         by = feature[0]
         value = feature[1]
         return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(by, value))
 
     #查找一组元素
-    def base_find_elements(self, feature, timeout=100, poll=1):
+    def base_find_elements(self, feature, timeout=30, poll=0.1):
         by = feature[0]
         value = feature[1]
         return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_elements(by, value))
@@ -25,32 +27,53 @@ class BaseAction:
 
     #输入元素
     def base_input(self, feature, text):
-        self.base_find_element(feature).send_keys(text)
+        input = self.base_find_element(feature)
+        input.clear()
+        input.send_keys(text)
 
-    #获取文本信息
+    #获取单个文本信息
     def base_get_text(self, feature):
         return self.base_find_element(feature).text
 
+    #判断元素是否存在(通用方法)
+    def base_if_element_exist(self,element):
+        message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(element)
+        try:
+            self.base_find_element(message_xpath,5,0.1)
+            return True
+        #这里一定得是TimeoutException，而不是TimeoutError
+        #TimeoutException超时会继续执行里面代码，TimeoutError就会报错，不管里面的代码
+        except TimeoutException:
+            return False
+
+    # 判断元素是否存在(个别方法)
+    def base_if_elem_exist(self,element):
+        try:
+            self.base_find_element(element,5,0.1)
+            return True
+        except TimeoutException:
+            return False
+
     # 判断toast是否存在
     def base_is_toast_exist(self,message):
-        message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
+        message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(message)
         try:
-            self.base_find_element(message_xpath)
+            self.base_find_element(message_xpath,5,0.1)
             return True
-        except TimeoutError as e:
+        except TimeoutException:
             return False
 
     #获取toast文本信息
     def base_get_toast_text(self,message):
-        message_xpath = By.XPATH, "//*[contains(@text,'{}')]".format(message)
+        message_xpath = By.XPATH, '//*[contains(@text,"{}")]'.format(message)
         if self.base_is_toast_exist(message):
-            return self.base_find_element(message_xpath).text
+            return self.base_find_element(message_xpath,5,0.1).text
         else:
             # return False
             raise Exception('toast不存在')
 
     #滑动找元素
-    def scroll_find_element(self,feature,direction):
+    def base_scroll_find_element(self,feature,direction='up'):
         """ 边滑边找某个元素的特征
             :param feature:元素的特征"""
         page_source = ''
@@ -59,13 +82,13 @@ class BaseAction:
                 return self.base_find_element(feature)
                 break
             except Exception:
-                self.scroll_page_one(direction)
+                self.base_scroll_page_one(direction)
                 if self.driver.page_source == page_source:
                     print('滑到底了')
                     break
                 page_source = self.driver.page_source
 
-    def scroll_page_one(self,direction='up'):
+    def base_scroll_page_one(self,direction='up'):
         """ 边滑边找某个元素的特征
             :param feature:元素的特征
             :param direction:方向
@@ -100,6 +123,23 @@ class BaseAction:
             self.driver.swipe(left_x,left_y,right_x,right_y)
         else:
             raise Exception('请确认参数是否正确：up/down/left/right')
+
+    def base_if_in_page_source(self,keyword,tomeout=10,poll=0.1):
+        '''针对webview里的的toast'''
+        #结束时间
+        end_time = time.time()+tomeout
+        while True:
+            if end_time<time.time():
+                return False
+            if keyword in self.driver.page_source:
+                return True
+            time.sleep(poll)
+
+    #返回键方法
+    def base_return_key(self):
+        self.driver.press_keycode(4)
+
+
 
 
 

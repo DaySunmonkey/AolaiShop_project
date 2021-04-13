@@ -1,0 +1,37 @@
+test_add_address:
+#  test_add_address_001:
+#    receiver : '胡歌'
+#    phone: '12345678901'
+#    address: '人民大道东52号'
+#    postcode: '156778'
+#    toast: Null
+  test_add_address_002:
+    receiver: ''
+    phone: '12345678901'
+    address: '人民大道东52号'
+    postcode: '156778'
+    toast: '收件人姓名'
+#  test_add_address_003:
+#    receiver: '胡歌'
+#    phone: '123456'
+#    address: '人民大道东52号'
+#    postcode: '156778'
+#    toast: '11位手机号'
+#  test_add_address_004:
+#    receiver: '胡歌'
+#    phone: '12345678901'
+#    address: ''
+#    postcode: '156778'
+#    toast: '请输入详细地址'
+#  test_add_address_005:
+#    receiver: '胡歌'
+#    phone: '12345678901'
+#    address: '人民大道东52号'
+#    postcode: '156'
+#    toast: '邮政编码错误'
+#  test_add_address_006:
+#    receiver: '胡歌'
+#    phone: '12345678901'
+#    address: '人民大道东52号'
+#    postcode: ''
+#    toast: Null

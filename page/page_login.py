@@ -19,8 +19,13 @@ class PageLogin(BaseAction):
     def page_click_login_button(self):
         self.base_click(self.login_button)
 
-    # def page_toast_if_exist(self,toast):
-    #     self.base_is_toast_exist(toast)
+    def page_toast_if_exist(self,toast):
+        message = By.XPATH,'//*[contains(@text,"{}")]'.format(toast)
+        self.base_is_toast_exist(message)
+
+    def page_get_toast_text(self,toast):
+        message = By.XPATH, '//*[contains(@text,"{}")]'.format(toast)
+        self.base_get_toast_text(message)
 
 
     #组合业务方法

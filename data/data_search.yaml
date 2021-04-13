@@ -1,0 +1,5 @@
+test_search:
+  test_search_001:
+    message: '手机'
+  test_search_002:
+    message: '电脑'

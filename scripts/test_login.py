@@ -33,10 +33,10 @@ class TestLogin():
         self.page.page_me_unlogin.click_go_login_button()
         self.page.page_login.page_login(username,password)
         sleep(2)
-        if toast==None:
+        if toast is None:
             assert self.page.page_me.get_username_text()=='Aolai_test520','登录前后用户名不一致!'
         else:
-            assert self.page.page_login.base_is_toast_exist(toast)
+            assert self.page.page_login.page_toast_if_exist(toast)
 
 
     # @pytest.mark.parametrize("args",[{"username":"Aolai_test520", "password":"aolaitest520"}])
