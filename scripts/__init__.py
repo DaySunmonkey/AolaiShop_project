@@ -5,6 +5,5 @@
 # rootPath = os.path.split(curPath)[0]
 # sys.path.append(rootPath)
 
-a = 'abcde'
-b = a.rjust(10)
-print(b)
+
+

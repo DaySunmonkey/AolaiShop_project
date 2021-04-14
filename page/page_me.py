@@ -19,6 +19,7 @@ class PageMe(BaseAction):
     main_button = By.ID,'com.yunmall.lc:id/tab_home'
 
     #获取用户名文本
+    @allure.step(title='获取用户名文本')
     def get_username_text(self):
         return self.base_get_text(self.me_username_text)
 
@@ -28,10 +29,12 @@ class PageMe(BaseAction):
         self.base_click(self.main_button)
 
     #点击设置按钮
+    @allure.step(title='点击设置按钮')
     def click_setting_button(self):
         self.base_click(self.setting_button)
 
     #点击加入超级VIP
+    @allure.step(title='点击加入超级vip按钮')
     def click_join_svip(self):
         self.base_scroll_find_element(self.join_svip).click()
         sleep(2)

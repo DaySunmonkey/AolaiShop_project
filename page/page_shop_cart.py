@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from AolaiShop_project.base.base_action import BaseAction
@@ -25,6 +26,7 @@ class PageShopCart(BaseAction):
     confirm_button = By.ID,'com.yunmall.lc:id/ymdialog_right_button'
 
     #选中某一款商品
+
     def click_select_button(self):
         eles = self.base_find_elements(self.select_button)
         eles_single = eles[0]
@@ -32,39 +34,47 @@ class PageShopCart(BaseAction):
 
 
     #点击全选
+    @allure.step(title='点击全选按钮')
     def click_all_select(self):
         self.base_click(self.all_select_button)
 
     #点击编辑
+    @allure.step(title='点击编辑按钮')
     def click_edit_button(self):
         self.base_click(self.edit_button)
 
     #点击增加
+    @allure.step(title='点击增加按钮')
     def click_add_button(self):
         adds = self.base_find_elements(self.add_button)
         adds_single = adds[0]
         adds_single.click()
 
     #获取单价
+    @allure.step(title='获取商品单价')
     def get_single_price(self):
         Prices = self.base_find_elements(self.single_price)
         pri = Prices[0].text
         return float(pri[2:])
 
     #获取总价
+    @allure.step(title='获取总计价格')
     def get_sum_price(self):
         Price = self.base_get_text(self.sum_price)
         return float(Price[2:])
 
     #判断购物车是否为空
+    @allure.step(title='判断购物车是否为空')
     def if_cart_null(self):
         return self.base_is_toast_exist('购物车还是空的')
 
     #点击删除按钮
+    @allure.step(title='点击删除按钮')
     def click_delete_button(self):
         self.base_click(self.delete_button)
 
     #点击确认按钮
+    @allure.step(title='点击确认按钮')
     def click_confirm_button(self):
         self.base_click(self.confirm_button)
 

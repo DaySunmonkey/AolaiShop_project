@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 
@@ -10,9 +11,11 @@ class PageSvip(BaseAction):
 
     '''避免踩坑：变量和函数名不能一致，不然识别不出来，会报错'''
 
+    @allure.step(title='输入邀请码')
     def input_invitecode(self):
         self.base_input(self.invitecode,'lihao')
 
+    @allure.step(title='点击加入超级VIP按钮')
     def click_svip_button(self):
         self.base_click(self.svip_button)
 

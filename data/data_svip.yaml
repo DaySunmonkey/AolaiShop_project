@@ -4,4 +4,4 @@ test_join_svip:
     toast: "邀请码输入不正确"
   test_join_svip_002:
     keyword: ""
-    toast: "请输入邀请码"
+    toast: "请填写邀请码"

@@ -19,14 +19,17 @@ class PageHome(BaseAction):
     search_button = By.ID,'com.yunmall.lc:id/ymtitlebar_left_btn_image'
 
     #点击我的
+    @allure.step(title='点击我的页面')
     def click_me(self):
         self.base_click(self.me_button)
 
     # 点击分类
+    @allure.step(title='点击分类页面')
     def click_category(self):
         self.base_click(self.category_button)
 
     # 点击购物车
+    @allure.step(title='点击购物车页面')
     def click_shopcart(self):
         self.base_click(self.shopcart_button)
 
