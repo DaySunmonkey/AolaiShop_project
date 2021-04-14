@@ -44,6 +44,6 @@ class TestAddAddress():
         else:
             assert self.page.page_add_address.if_toast_exist(toast),"保存失败，toast与预期不符"
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_add_address.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s','test_add_address.py'])
 

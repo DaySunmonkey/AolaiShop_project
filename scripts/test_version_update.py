@@ -1,9 +1,9 @@
 from time import sleep
 
 import pytest
-
-from AolaiShop_project.base.base_driver import init_driver
 from AolaiShop_project.page.page import PageEntrance
+from AolaiShop_project.base.base_driver import init_driver
+
 
 
 class TestVersionUpdate():
@@ -28,5 +28,5 @@ class TestVersionUpdate():
         #断言是否是最新版本
         assert self.page.page_about_aolai.toast_if_exist()
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_version_update.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s','test_version_update.py'])

@@ -2,12 +2,12 @@ from time import sleep
 
 import pytest
 
-from AolaiShop_project.base.base_driver import init_driver
 from AolaiShop_project.base.get_yaml import analyze_file
 from AolaiShop_project.page.page import PageEntrance
+from AolaiShop_project.base.base_driver import init_driver
 
 def get_data():
-    analyze_file('data_svip.yaml','test_join_svip')
+    return analyze_file('data_svip.yaml','test_join_svip')
 
 class TestVersionUpdate():
 
@@ -31,7 +31,7 @@ class TestVersionUpdate():
         self.page.page_me.click_join_svip()
         #输入邀请码,点击加入
         self.page.page_svip.join_svip()
-        assert self.page.page_svip.base_if_in_page_source('toast'),'{}不在page_source中'.format(toast)
+        assert self.page.page_svip.base_is_toast_exist(toast)
 
 
 #------------------------下面是涉及到webview的操作(以前百年奥莱版本)----------
@@ -56,5 +56,5 @@ class TestVersionUpdate():
     #     self.driver.switch_to.context('NATIVE_APP')
 
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_join_svip.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s','test_join_svip.py'])

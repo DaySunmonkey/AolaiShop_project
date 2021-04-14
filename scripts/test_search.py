@@ -34,5 +34,5 @@ class TestSearch():
         #断言
         assert self.page.page_search.find_latest_search(message)
 
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_search.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s', 'test_search.py'])

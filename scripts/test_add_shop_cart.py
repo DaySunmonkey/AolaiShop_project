@@ -35,5 +35,5 @@ class TestAddShopCart():
         self.page.page_specific_good.click_shop_cart_button()
         assert self.page.page_specific_good.base_if_element_exist(title)
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_add_shop_cart.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s','test_add_shop_cart.py'])

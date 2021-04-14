@@ -62,6 +62,6 @@ class TestShopCart():
         assert self.page.page_shop_cart.if_cart_null()
 
 
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_shop_cart.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s', 'test_shop_cart.py'])
 

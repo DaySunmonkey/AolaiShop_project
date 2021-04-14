@@ -1,2 +1,7 @@
-# 生成报告的命令
-# allure generate report/ -o report/html --clean
+# import sys
+# print(sys.path)
+# import os
+# curPath = os.path.abspath(os.path.dirname(__file__))
+# rootPath = os.path.split(curPath)[0]
+# sys.path.append(rootPath)
+

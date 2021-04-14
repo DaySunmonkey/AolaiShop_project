@@ -21,11 +21,11 @@ class PageLogin(BaseAction):
 
     def page_toast_if_exist(self,toast):
         message = By.XPATH,'//*[contains(@text,"{}")]'.format(toast)
-        self.base_is_toast_exist(message)
+        return self.base_is_toast_exist(message)
 
     def page_get_toast_text(self,toast):
         message = By.XPATH, '//*[contains(@text,"{}")]'.format(toast)
-        self.base_get_toast_text(message)
+        return self.base_get_toast_text(message)
 
 
     #组合业务方法
