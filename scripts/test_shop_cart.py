@@ -41,6 +41,7 @@ class TestShopCart():
             self.shopcart_null_toadd()
         #增加商品数量看总价格会不会增加组合业务方法
         price = self.page.page_shop_cart.page_shopcart_addprice()
+        print(price)
         sum1_price = price[0]
         single_price = price[1]
         sum2_price = price[2]
@@ -62,6 +63,6 @@ class TestShopCart():
         assert self.page.page_shop_cart.if_cart_null()
 
 
-# if __name__ == '__main__':
-#     pytest.main(['-s', 'test_shop_cart.py'])
+if __name__ == '__main__':
+    pytest.main(['-s', 'test_shop_cart.py'])
 

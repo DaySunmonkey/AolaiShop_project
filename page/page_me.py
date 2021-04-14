@@ -9,11 +9,11 @@ from AolaiShop_project.base.base_action import BaseAction
 
 class PageMe(BaseAction):
     #用户名文本
-    me_username_text = By.CLASS_NAME,'com.yunmall.lc:id/tv_user_nikename'
+    me_username_text = By.ID,'com.yunmall.lc:id/tv_user_nikename'
     #设置按钮
     setting_button = By.ID,'com.yunmall.lc:id/ymtitlebar_left_btn_image'
     #加入超级VIP
-    join_svip = By.XPATH,'//*[@text="加入超级VIP"]'
+    join_svip = By.ID,'com.yunmall.lc:id/tv_my_shop_text'
 
     #首页按钮
     main_button = By.ID,'com.yunmall.lc:id/tab_home'

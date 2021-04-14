@@ -54,6 +54,6 @@ class TestLogin():
     #         print('登录失败')
 
 
-if __name__ == '__main__':
-    pytest.main(['-s','test_login.py'])
+# if __name__ == '__main__':
+#     pytest.main(['-s','test_login.py'])
 
