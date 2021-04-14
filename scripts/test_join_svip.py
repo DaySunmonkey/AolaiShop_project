@@ -9,7 +9,7 @@ from AolaiShop_project.base.base_driver import init_driver
 def get_data():
     return analyze_file('data_svip.yaml','test_join_svip')
 
-class TestVersionUpdate():
+class TestJoinSvip():
 
     def setup(self):
         self.driver = init_driver()
